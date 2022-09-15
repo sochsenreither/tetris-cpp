@@ -1,0 +1,169 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: tetris_cpp
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/simon/Documents/Code/C++/tetris-cpp/cmake-build-debug/
+# =============================================================================
+# Object build statements for EXECUTABLE target tetris_cpp
+
+
+#############################################
+# Order-only phony target for tetris_cpp
+
+build cmake_object_order_depends_target_tetris_cpp: phony || CMakeFiles/tetris_cpp.dir
+
+build CMakeFiles/tetris_cpp.dir/engine/engine.cpp.o: CXX_COMPILER__tetris_cpp_Debug /Users/simon/Documents/Code/C++/tetris-cpp/engine/engine.cpp || cmake_object_order_depends_target_tetris_cpp
+  DEP_FILE = CMakeFiles/tetris_cpp.dir/engine/engine.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -F /Library/Frameworks/ -std=gnu++17
+  INCLUDES = -I/Users/simon/Documents/Code/C++/tetris-cpp/include -isystem /Library/Frameworks/SDL2.framework/Headers
+  OBJECT_DIR = CMakeFiles/tetris_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/tetris_cpp.dir/engine
+
+build CMakeFiles/tetris_cpp.dir/game/board.cpp.o: CXX_COMPILER__tetris_cpp_Debug /Users/simon/Documents/Code/C++/tetris-cpp/game/board.cpp || cmake_object_order_depends_target_tetris_cpp
+  DEP_FILE = CMakeFiles/tetris_cpp.dir/game/board.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -F /Library/Frameworks/ -std=gnu++17
+  INCLUDES = -I/Users/simon/Documents/Code/C++/tetris-cpp/include -isystem /Library/Frameworks/SDL2.framework/Headers
+  OBJECT_DIR = CMakeFiles/tetris_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/tetris_cpp.dir/game
+
+build CMakeFiles/tetris_cpp.dir/game/game.cpp.o: CXX_COMPILER__tetris_cpp_Debug /Users/simon/Documents/Code/C++/tetris-cpp/game/game.cpp || cmake_object_order_depends_target_tetris_cpp
+  DEP_FILE = CMakeFiles/tetris_cpp.dir/game/game.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -F /Library/Frameworks/ -std=gnu++17
+  INCLUDES = -I/Users/simon/Documents/Code/C++/tetris-cpp/include -isystem /Library/Frameworks/SDL2.framework/Headers
+  OBJECT_DIR = CMakeFiles/tetris_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/tetris_cpp.dir/game
+
+build CMakeFiles/tetris_cpp.dir/game/piece.cpp.o: CXX_COMPILER__tetris_cpp_Debug /Users/simon/Documents/Code/C++/tetris-cpp/game/piece.cpp || cmake_object_order_depends_target_tetris_cpp
+  DEP_FILE = CMakeFiles/tetris_cpp.dir/game/piece.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -F /Library/Frameworks/ -std=gnu++17
+  INCLUDES = -I/Users/simon/Documents/Code/C++/tetris-cpp/include -isystem /Library/Frameworks/SDL2.framework/Headers
+  OBJECT_DIR = CMakeFiles/tetris_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/tetris_cpp.dir/game
+
+build CMakeFiles/tetris_cpp.dir/main.cpp.o: CXX_COMPILER__tetris_cpp_Debug /Users/simon/Documents/Code/C++/tetris-cpp/main.cpp || cmake_object_order_depends_target_tetris_cpp
+  DEP_FILE = CMakeFiles/tetris_cpp.dir/main.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -F /Library/Frameworks/ -std=gnu++17
+  INCLUDES = -I/Users/simon/Documents/Code/C++/tetris-cpp/include -isystem /Library/Frameworks/SDL2.framework/Headers
+  OBJECT_DIR = CMakeFiles/tetris_cpp.dir
+  OBJECT_FILE_DIR = CMakeFiles/tetris_cpp.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target tetris_cpp
+
+
+#############################################
+# Link the executable tetris_cpp
+
+build tetris_cpp: CXX_EXECUTABLE_LINKER__tetris_cpp_Debug CMakeFiles/tetris_cpp.dir/engine/engine.cpp.o CMakeFiles/tetris_cpp.dir/game/board.cpp.o CMakeFiles/tetris_cpp.dir/game/game.cpp.o CMakeFiles/tetris_cpp.dir/game/piece.cpp.o CMakeFiles/tetris_cpp.dir/main.cpp.o
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  LINK_FLAGS = -F /Library/Frameworks/ -framework SDL2
+  OBJECT_DIR = CMakeFiles/tetris_cpp.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = tetris_cpp
+  TARGET_PDB = tetris_cpp.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/simon/Documents/Code/C++/tetris-cpp/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/simon/Documents/Code/C++/tetris-cpp/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/simon/Documents/Code/C++/tetris-cpp -B/Users/simon/Documents/Code/C++/tetris-cpp/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Target aliases.
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/simon/Documents/Code/C++/tetris-cpp/cmake-build-debug
+
+build all: phony tetris_cpp
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FeatureSummary.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPkgConfig.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config-version.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build ../CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FeatureSummary.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPkgConfig.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config-version.cmake /Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all

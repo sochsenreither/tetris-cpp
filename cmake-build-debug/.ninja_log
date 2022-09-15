@@ -1,0 +1,10 @@
+# ninja log v5
+8	2253	1663276891013533493	CMakeFiles/tetris_cpp.dir/game/game.cpp.o	33a8e39ebf8d923f
+1	140	1663276917935473586	build.ninja	dc31c1fdcc592495
+2253	3766	1663276892530707990	CMakeFiles/tetris_cpp.dir/main.cpp.o	aa638453aa3ef91d
+3766	3868	1663276892640017142	tetris_cpp	a25f71eeddb1fe24
+8	2538	1663276891299584692	CMakeFiles/tetris_cpp.dir/game/board.cpp.o	f489a7b40c177b49
+8	2744	1663276891506311711	CMakeFiles/tetris_cpp.dir/game/piece.cpp.o	c6a14b08b7e382ed
+13	2122	1663278597145525055	CMakeFiles/tetris_cpp.dir/main.cpp.o	aa638453aa3ef91d
+10	2169	1663278597189533070	CMakeFiles/tetris_cpp.dir/engine/engine.cpp.o	5651eead8bd51d0f
+8	1994	1663278629027314175	CMakeFiles/tetris_cpp.dir/engine/engine.cpp.o	5651eead8bd51d0f
