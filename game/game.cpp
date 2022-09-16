@@ -1,8 +1,8 @@
 #include "game.h"
 
 void Game::handle_dropped_piece() {
-    board.draw_piece(active_piece);
     active_piece.set_inactive();
+    board.draw_piece(active_piece);
     auto count = board.clear_lines();
 
     int points[] = {0, 40, 100, 300, 1200};
@@ -69,6 +69,7 @@ bool Game::step(const std::string &direction, bool tick) {
         board.draw_piece(active_piece);
         return false;
     }
+
 
     if (!board.collision(p)) {
         board.remove_piece(active_piece);

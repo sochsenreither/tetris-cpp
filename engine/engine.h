@@ -1,25 +1,24 @@
 #pragma once
 
 #include <SDL.h>
-#include <SDL2_ttf/SDL_ttf.h>
-#include <string>
+#include <SDL_ttf.h>
 
 #include "../game/game.h"
+#include "../ai/ai.h"
 
-const auto scale = 30;
-const auto width = 2014;
-const auto height = 900;
-const auto x_offset = width / 2 - COLS * scale / 2;
-const auto y_offset = height / 2 - ROWS * scale / 2;
-const auto preview = true;
+const auto SCALE = 30;
+const auto WIDTH = 1024;
+const auto HEIGHT = 900;
+const auto X_OFFSET = WIDTH / 2 - COLS * SCALE / 2;
+const auto Y_OFFSET = HEIGHT / 2 - ROWS * SCALE / 2;
 
-struct Engine {
-    // TODO: add ai
+class Engine {
 private:
     SDL_Window *window;
     SDL_Renderer *renderer;
     TTF_Font *font;
     TTF_Font *font_small;
+    TetrisPlayer ai;
     Game game{};
     bool pause{false};
     bool running{true};
@@ -30,17 +29,13 @@ private:
 
     void render_next_piece();
 
-    void render_pause();
+    void render_text_box(const char *text);
 
-    void render_game_over();
+    void render_text(const char *text, int x, int y, TTF_Font *fnt);
 
-    void render_text_box();
+    void render_canvas_block(int x, int y);
 
-    void render_text();
-
-    void render_canvas_block();
-
-    void render_block();
+    void render_block(int x, int y, SDL_Color color);
 
     void render_stats();
 
@@ -50,4 +45,6 @@ public:
     ~Engine();
 
     void run();
+
+    void run_ai();
 };

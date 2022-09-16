@@ -213,14 +213,29 @@ PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/local/bin/pkg-config
 //The directory containing a CMake configuration file for SDL2TTF.
 SDL2TTF_DIR:PATH=SDL2TTF_DIR-NOTFOUND
 
+//Path to a file.
+SDL2TTF_INCLUDE_DIR:PATH=/Library/Frameworks/SDL2_ttf.framework/Headers
+
+//Where the SDL2TTF Library can be found
+SDL2TTF_LIBRARY:STRING=/Library/Frameworks/SDL2_ttf.framework;-framework Cocoa
+
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/Library/Frameworks/SDL2.framework/Resources/CMake
+
+//Path to a file.
+SDL2_INCLUDE_DIR:PATH=/Library/Frameworks/SDL2.framework/Headers
+
+//Where the SDL2 Library can be found
+SDL2_LIBRARY:STRING=/Library/Frameworks/SDL2.framework;-framework Cocoa
 
 //The directory containing a CMake configuration file for SDL2_TTF.
 SDL2_TTF_DIR:PATH=/Library/Frameworks/SDL2_ttf.framework/Resources/CMake
 
 //The directory containing a CMake configuration file for SDL2_TaTF.
 SDL2_TaTF_DIR:PATH=SDL2_TaTF_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for SDL2_.
+SDL2__DIR:PATH=SDL2__DIR-NOTFOUND
 
 //The directory containing a CMake configuration file for SDL2_ttf.
 SDL2_ttf_DIR:PATH=/Library/Frameworks/SDL2_ttf.framework/Resources/CMake
@@ -381,6 +396,10 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/local/bin/pkg-config][v0.29.2()]
+//Details about finding SDL2
+FIND_PACKAGE_MESSAGE_DETAILS_SDL2:INTERNAL=[/Library/Frameworks/SDL2.framework;-framework Cocoa][/Library/Frameworks/SDL2.framework/Headers][v()]
+//Details about finding SDL2TTF
+FIND_PACKAGE_MESSAGE_DETAILS_SDL2TTF:INTERNAL=[/Library/Frameworks/SDL2_ttf.framework;-framework Cocoa][/Library/Frameworks/SDL2_ttf.framework/Headers][v()]
 //ADVANCED property for variable: PKG_CONFIG_ARGN
 PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
@@ -396,6 +415,7 @@ SDL2TTF_LDFLAGS_OTHER:INTERNAL=
 SDL2TTF_LIBDIR:INTERNAL=/usr/local/Cellar/sdl2_ttf/2.20.1/lib
 SDL2TTF_LIBRARIES:INTERNAL=SDL2_ttf;SDL2
 SDL2TTF_LIBRARY_DIRS:INTERNAL=/usr/local/Cellar/sdl2_ttf/2.20.1/lib;/usr/local/lib
+SDL2TTF_LIBRARY_TEMP:INTERNAL=/Library/Frameworks/SDL2_ttf.framework;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa
 SDL2TTF_LIBS:INTERNAL=
 SDL2TTF_LIBS_L:INTERNAL=
 SDL2TTF_LIBS_OTHER:INTERNAL=
@@ -431,6 +451,7 @@ SDL2_LDFLAGS_OTHER:INTERNAL=
 SDL2_LIBDIR:INTERNAL=/usr/local/lib
 SDL2_LIBRARIES:INTERNAL=SDL2
 SDL2_LIBRARY_DIRS:INTERNAL=/usr/local/lib
+SDL2_LIBRARY_TEMP:INTERNAL=/Library/Frameworks/SDL2.framework;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa
 SDL2_LIBS:INTERNAL=
 SDL2_LIBS_L:INTERNAL=
 SDL2_LIBS_OTHER:INTERNAL=

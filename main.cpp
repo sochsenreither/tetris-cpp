@@ -3,8 +3,8 @@
 #include "engine/engine.h"
 
 int main() {
-    Engine engine{};
-    engine.run();
+    auto engine = Engine{};
+    engine.run_ai();
 
     return 0;
 }

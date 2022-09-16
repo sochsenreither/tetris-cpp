@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <iostream>
 #include <random>
+#include <chrono>
 
 const SDL_Color mint = {72, 207, 173};
 const SDL_Color bluejeans = {93, 156, 236};
@@ -17,7 +18,7 @@ Piece Piece::move(int x, int y) {
     std::array<Block, 4> new_blocks;
     auto i = 0;
     for (auto b: blocks) {
-        new_blocks.at(i++) = Block{b.row + x, b.col + y, b.color, b.active};
+        new_blocks.at(i++) = Block{b.row + x, b.col + y, b.color, b.active, b.dead};
     }
 
     return Piece{type, new_blocks};
@@ -58,14 +59,15 @@ Piece Piece::rotate() {
                 pivot.row + (d_col * -1),
                 pivot.col + d_row,
                 b.color,
-                b.active};
+                b.active,
+                b.dead};
     }
 
     return Piece{type, new_blocks};
 }
 
 void Piece::set_inactive() {
-    for (auto b: blocks) {
+    for (auto &b: blocks) {
         b.active = false;
     }
 }
@@ -73,18 +75,12 @@ void Piece::set_inactive() {
 void Piece::debug_print() {
     std::cout << "Type: " << type << '\n';
     for (auto b: blocks) {
-        std::cout << "Row: " << b.row << " Col: " << b.col << " Active: " << b.active << '\n';
+        std::cout << "Row: " << b.row << " Col: " << b.col << " Active: " << b.active << " Dead: " << b.dead << '\n';
     }
 }
 
 bool Piece::is_active() {
-    return std::for_each(
-            blocks.begin(),
-            blocks.end(),
-            [](const Block &b) {
-                if (b.active) return true;
-                else return false;
-            });
+    return blocks[0].active;
 }
 
 PieceFactory::PieceFactory() {
@@ -95,6 +91,7 @@ PieceFactory::PieceFactory() {
 void PieceFactory::init() {
     pieces = std::vector<Piece>{i_piece(), j_piece(), l_piece(), o_piece(), s_piece(), t_piece(), z_piece()};
     auto rng = std::default_random_engine{};
+    rng.seed(std::chrono::system_clock::now().time_since_epoch().count());
     std::shuffle(std::begin(pieces), std::end(pieces), rng);
 }
 
@@ -117,10 +114,10 @@ Piece PieceFactory::i_piece() {
     return Piece{
             "I",
             std::array<Block, 4>{
-                    Block{1, 1, mint, true},
-                    Block{1, 2, mint, true},
-                    Block{1, 0, mint, true},
-                    Block{1, 3, mint, true},
+                    Block{1, 1, mint, true, false},
+                    Block{1, 2, mint, true, false},
+                    Block{1, 0, mint, true, false},
+                    Block{1, 3, mint, true, false},
             }};
 }
 
@@ -128,10 +125,10 @@ Piece PieceFactory::l_piece() {
     return Piece{
             "L",
             std::array<Block, 4>{
-                    Block{1, 1, bittersweet, true},
-                    Block{1, 0, bittersweet, true},
-                    Block{1, 2, bittersweet, true},
-                    Block{0, 2, bittersweet, true},
+                    Block{1, 1, bittersweet, true, false},
+                    Block{1, 0, bittersweet, true, false},
+                    Block{1, 2, bittersweet, true, false},
+                    Block{0, 2, bittersweet, true, false},
             }};
 }
 
@@ -139,10 +136,10 @@ Piece PieceFactory::o_piece() {
     return Piece{
             "O",
             std::array<Block, 4>{
-                    Block{0, 0, sunflower, true},
-                    Block{1, 1, sunflower, true},
-                    Block{0, 1, sunflower, true},
-                    Block{1, 0, sunflower, true},
+                    Block{0, 0, sunflower, true, false},
+                    Block{1, 1, sunflower, true, false},
+                    Block{0, 1, sunflower, true, false},
+                    Block{1, 0, sunflower, true, false},
             }
     };
 }
@@ -151,10 +148,10 @@ Piece PieceFactory::s_piece() {
     return Piece{
             "S",
             std::array<Block, 4>{
-                    Block{1, 1, grass, true},
-                    Block{1, 0, grass, true},
-                    Block{0, 1, grass, true},
-                    Block{0, 2, grass, true},
+                    Block{1, 1, grass, true, false},
+                    Block{1, 0, grass, true, false},
+                    Block{0, 1, grass, true, false},
+                    Block{0, 2, grass, true, false},
             }
     };
 }
@@ -163,10 +160,10 @@ Piece PieceFactory::j_piece() {
     return Piece{
             "J",
             std::array<Block, 4>{
-                    Block{1, 1, bluejeans, true},
-                    Block{1, 0, bluejeans, true},
-                    Block{0, 0, bluejeans, true},
-                    Block{1, 2, bluejeans, true},
+                    Block{1, 1, bluejeans, true, false},
+                    Block{1, 0, bluejeans, true, false},
+                    Block{0, 0, bluejeans, true, false},
+                    Block{1, 2, bluejeans, true, false},
             }
     };
 }
@@ -175,10 +172,10 @@ Piece PieceFactory::t_piece() {
     return Piece{
             "T",
             std::array<Block, 4>{
-                    Block{1, 1, lavender, true},
-                    Block{1, 0, lavender, true},
-                    Block{0, 1, lavender, true},
-                    Block{1, 2, lavender, true},
+                    Block{1, 1, lavender, true, false},
+                    Block{1, 0, lavender, true, false},
+                    Block{0, 1, lavender, true, false},
+                    Block{1, 2, lavender, true, false},
             }
     };
 }
@@ -187,10 +184,10 @@ Piece PieceFactory::z_piece() {
     return Piece{
             "Z",
             std::array<Block, 4>{
-                    Block{1, 1, ruby, true},
-                    Block{0, 0, ruby, true},
-                    Block{0, 1, ruby, true},
-                    Block{1, 2, ruby, true},
+                    Block{1, 1, ruby, true, false},
+                    Block{0, 0, ruby, true, false},
+                    Block{0, 1, ruby, true, false},
+                    Block{1, 2, ruby, true, false},
             }
     };
 }

@@ -9,5 +9,6 @@ struct Block {
     int row{};
     int col{};
     SDL_Color color{};
-    bool active{};
+    bool active{false}; // Dropped blocks are inactive
+    bool dead{true};
 };

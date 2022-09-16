@@ -5,10 +5,8 @@
 #include "block.h"
 
 struct Board {
-private:
     std::array<std::array<Block, COLS>, ROWS> canvas;
 
-public:
     void draw_piece(const Piece &p);
 
     void remove_piece(const Piece &p);
