@@ -3,8 +3,12 @@
 #include "engine/engine.h"
 
 int main() {
-    auto engine = Engine{};
-    engine.run_ai();
+    try {
+        Engine{}.run();
+    } catch (const std::runtime_error &e) {
+        std::cout << e.what() << '\n';
+        return 1;
+    }
 
     return 0;
 }

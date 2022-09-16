@@ -1,5 +1,6 @@
 #include "engine.h"
 #include <string>
+#include <stdexcept>
 
 Engine::Engine() {
     window = SDL_CreateWindow("tetris",
@@ -9,24 +10,24 @@ Engine::Engine() {
                               HEIGHT,
                               SDL_WINDOW_SHOWN);
     if (window == nullptr) {
-        // TODO: throw exception
+        throw std::runtime_error("Failed to initialize SDL2 window");
     }
 
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     if (renderer == nullptr) {
-        // TODO: throw exception
+        throw std::runtime_error("Failed to initialize SDL2 renderer");
     }
     if (TTF_Init() < 0) {
-        // TODO: throw exception
+        throw std::runtime_error("Failed to initialize SDL2 TTF");
     }
 
     font = TTF_OpenFont("../font/SourceSansPro-Regular.otf", 48);
     if (font == nullptr) {
-        // TODO: throw exception
+        throw std::runtime_error("Failed to load font");
     }
     font_small = TTF_OpenFont("../font/SourceSansPro-Regular.otf", 32);
     if (font_small == nullptr) {
-        // TODO: throw exception
+        throw std::runtime_error("Failed to load font");
     }
 }
 
@@ -40,7 +41,7 @@ void Engine::run() {
     auto counter = 0;
 
     while (running) {
-        auto interval = 30 - (game.level * 3);
+        auto interval = 50 - (game.level * 3);
         if (interval < 5) interval = 5;
 
         SDL_SetRenderDrawColor(renderer, 35, 35, 35, 0);
