@@ -34,7 +34,10 @@ Engine::Engine() {
 Engine::~Engine() {
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+    TTF_CloseFont(font);
+    TTF_CloseFont(font_small);
     TTF_Quit();
+    SDL_Quit();
 }
 
 void Engine::run() {
