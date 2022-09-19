@@ -4,7 +4,7 @@
 
 int main() {
     try {
-        Engine{}.run();
+        Engine{}.run_ai();
     } catch (const std::runtime_error &e) {
         std::cout << e.what() << '\n';
         return 1;
