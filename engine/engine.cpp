@@ -1,6 +1,8 @@
 #include "engine.h"
 #include <string>
 #include <stdexcept>
+#include <iostream>
+#include <iomanip>
 
 Engine::Engine() {
     window = SDL_CreateWindow("tetris",
@@ -42,8 +44,17 @@ Engine::~Engine() {
 
 void Engine::run() {
     auto counter = 0;
+    auto score = true;
 
     while (running) {
+        if (score && game.game_over) {
+            std::cout << "Game over! Input name: ";
+            std::string name;
+            std::cin >> std::setw(3) >> name;
+            std::cout << "Name is: " << name << '\n';
+            score = false;
+        }
+
         auto interval = 50 - (game.level * 3);
         if (interval < 5) interval = 5;
 
@@ -55,6 +66,8 @@ void Engine::run() {
 
         if (direction == "RETURN" && game.game_over) {
             game = Game{};
+            counter = 0;
+            score = true;
             continue;
         }
 
